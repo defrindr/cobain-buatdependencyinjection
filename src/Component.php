@@ -22,20 +22,10 @@ class Component
             if ($instance instanceof BangunDatarService) {
                 self::$objs[$key] = $instance;
             } else {
-                throw new Exception("Not implementing 'BangunDatar'", 1);
+                throw new Exception("Class Not Allowed", 1);
             }
         }
 
-        return new static;
-    }
-
-    public function params($a)
-    {
-        if (empty(self::$obj)) {
-            throw new Exception("Jenis Bangun Datar Belum Dipilih", 1);
-        }
-
-        self::$obj->assignVar($a);
         return new static;
     }
 
@@ -52,18 +42,8 @@ class Component
     {
         if (isset(self::$objs[$key])) {
             self::$obj = self::$objs[$key];
-            return new static;
+            return self::$obj;
         }
-        throw new Exception("Instance belum di register", 1);
-    }
-
-    public function get($func)
-    {
-        $lists = get_class_methods(self::$obj);
-        foreach ($lists as $list) {
-            if ($list == $func) {
-                return self::$obj->$func();
-            }
-        }
+        throw new Exception("Instance belum di pilih.", 1);
     }
 }
