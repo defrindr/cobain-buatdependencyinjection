@@ -1,5 +1,6 @@
 {
-    "name": "defrindr/DI-sample",
+    "name": "defrindr/disample",
+    "description": "Just Test Code",
     "require": {
         "phpunit/phpunit": "^9.2"
     },

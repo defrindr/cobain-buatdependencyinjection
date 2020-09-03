@@ -10,10 +10,13 @@ class DIUnitTest extends TC
     /**
      * Register Component
      */
+    public $component;
 
-    public function component()
+    public function __construct()
     {
-        return Component::register([
+        parent::__construct();
+        
+        $this->component = (new Component)->register([
             "segitiga" => Segitiga::class,
             "persegi" => '\defrindr\DISample\BangunDatar\Persegi',
             "belahKetupat" => BelahKetupat::class,
@@ -23,9 +26,9 @@ class DIUnitTest extends TC
 
     public function testHelp()
     {
-        $persegi = $this->component()->load('persegi');
-        $belahKetupat = $this->component()->load('belahKetupat');
-        $segitiga = $this->component()->load('segitiga');
+        $persegi = $this->component->persegi();
+        $belahKetupat = $this->component->belahKetupat();
+        $segitiga = $this->component->segitiga();
 
         $this->assertEquals($persegi->help(), ['sisi']);
         $this->assertEquals($belahKetupat->help(), ['diagonal1', 'diagonal2', 'sisi']);
@@ -34,9 +37,9 @@ class DIUnitTest extends TC
 
     public function testCalc()
     {
-        $persegi = $this->component()->load('persegi');
-        $belahKetupat = $this->component()->load('belahKetupat');
-        $segitiga = $this->component()->load('segitiga');
+        $persegi = $this->component->persegi();
+        $belahKetupat = $this->component->belahKetupat();
+        $segitiga = $this->component->segitiga();
 
         $this->assertEquals($persegi->params([
             'sisi' => 5,

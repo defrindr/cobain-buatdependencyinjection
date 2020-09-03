@@ -1,8 +1,10 @@
 <?php
 namespace defrindr\DISample\Services;
 
-interface BangunDatarService
+interface BangunDatarService extends Service
 {
     public function luas();
     public function keliling();
 }
+
+
