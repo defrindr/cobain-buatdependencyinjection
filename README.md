@@ -6,6 +6,6 @@ Dependencies Injection Sample
 git clone https://github.com/defrindr/DISample.git
 cd DISample
 composer install
-./vendor/vin/phpunit tests
+./vendor/bin/phpunit tests
 ```
 
